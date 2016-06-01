@@ -10,6 +10,7 @@ import {PageService} from "../../../services/helpers/PageService";
 export class MenuLeft {
   items = [
     {label: 'Dashboard', route: ['/Dashboard'], iconClass: 'fa fa-dashboard'},
+    {label: 'Запросы на управление', route: ['/ManageRequests'], iconClass: 'fa fa-briefcase'},
   ];
 
   constructor(private elementRef:ElementRef, private authService:AuthService) {
