@@ -1,0 +1,49 @@
+@import "../variables";
+
+html, body {
+  height: 100%;
+  color: #000;
+}
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  height: 100%;
+  word-wrap: break-word;
+  app {
+    min-height: 100%;
+    display: flex;
+    position: relative;
+    @media (max-width: map-get($grid-breakpoints, 'sm')-1) {
+      //xs devices
+      display: block;
+    }
+
+    .full-page-container {
+      min-width: 1rem;
+      overflow: hidden;
+      flex-grow: 1;
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .above-footer {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        main {
+          position: relative;
+          flex-grow: 1;
+          min-height: 25rem;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+

@@ -1,0 +1,31 @@
+<div class="ml" [class.ml-toggle]="hasToggle()">
+  <div class="ml-header">
+    <span class="pull-xs-right hidden-xs-down" (click)="toggle()"><i class="fa fa-bars"></i></span>
+    <span class="hidden-sm-up">
+        <span (click)="toggleSm()"><i class="fa fa-bars"></i></span>
+        <a class="navbar-brand" (click)="pageService.navigateToDefault()">
+          <small>Флапер</small>
+        </a>
+    </span>
+  </div>
+  <ul class="nav nav-pills nav-stacked mobile-collapsed" id="ml-items">
+    <li *ngFor="let item of items" class="nav-item">
+      <a class="nav-link" [routerLink]="item.route">
+      <span class="icon-container text-xs-center">
+        <i class="{{item.iconClass}}"></i>
+      </span>
+        <span class="label">{{item.label}}</span>
+      </a>
+    </li>
+    <li class="hidden-sm-up nav-item">
+      <a class="nav-link" (click)="logout()">
+        <span class="icon-container text-xs-center">
+          <i class="fa fa-sign-out"></i>
+        </span>
+        <span class="label">
+          Выход
+        </span>
+      </a>
+    </li>
+  </ul>
+</div>
