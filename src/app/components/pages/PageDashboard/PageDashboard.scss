@@ -1,0 +1,13 @@
+.card-block {
+  border-radius: 0.3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  *:nth-child(2) {
+    text-align: right;
+  }
+}
+
+h1 {
+  margin-bottom: 0;
+}

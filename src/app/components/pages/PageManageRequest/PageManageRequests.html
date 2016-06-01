@@ -1,31 +1,34 @@
-<h1 class="text-xs-center">Запросы на управление страницей</h1>
-<div class="table-responsive">
-  <table class="table table-sm table-bordered table-striped">
-    <thead>
-    <tr>
-      <th>№</th>
-      <th>ФИО</th>
-      <th>Должность</th>
-      <th>Телефон</th>
-      <th>Email</th>
-      <th>Страница</th>
-      <th>Дата</th>
-      <th>Статус</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let request of requests; let i = index">
-      <td>{{i+1}}</td>
-      <td>{{request.name}}</td>
-      <td>{{request.position}}</td>
-      <td>{{request.phone}}</td>
-      <td>{{request.email}}</td>
-      <td>
-        <object-link [id]="request.subjectId"></object-link>
-      </td>
-      <td>{{request.created | date}}</td>
-      <td><span class="label label-default">{{request.status}}</span></td>
-    </tr>
-    </tbody>
-  </table>
+<div class="container-fluid">
+  <h1 class="text-xs-center">Заявки на управление страницей</h1>
+
+  <div class="table-responsive">
+    <table class="table table-sm table-bordered table-striped">
+      <thead>
+      <tr>
+        <th>№</th>
+        <th>ФИО</th>
+        <th>Должность</th>
+        <th>Телефон</th>
+        <th>Email</th>
+        <th>Страница</th>
+        <th>Дата</th>
+        <th>Статус</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let request of requests; let i = index">
+        <td>{{i+1}}</td>
+        <td>{{request.name}}</td>
+        <td>{{request.position}}</td>
+        <td>{{request.phone}}</td>
+        <td>{{request.email}}</td>
+        <td>
+          <object-link [id]="request.subjectId"></object-link>
+        </td>
+        <td>{{request.created | date}}</td>
+        <td><span class="label label-default">{{request.status}}</span></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

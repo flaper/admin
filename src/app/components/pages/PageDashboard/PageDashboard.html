@@ -1,7 +1,36 @@
-<h1>Dashboard</h1>
-<div>
-  Current user:
-<strong *ngIf="_user.currentUser">
-  {{_user.currentUser.displayName}}
-</strong>
+<div class="container-fluid">
+  <h1 class="text-xs-center">Dashboard</h1>
+
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card">
+        <div class="card-block bg-primary">
+          <div>
+            <i class="fa fa-users fa-5x"></i>
+          </div>
+          <div>
+            <h1>{{lastUsers}}</h1>
+
+            <div>({{totalUsers}})</div>
+            <p class="card-text">Пользователей</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card">
+        <div class="card-block bg-success">
+          <div>
+            <i class="fa fa-book fa-5x"></i>
+          </div>
+          <div>
+            <h1>{{lastStories}}</h1>
+
+            <div>({{totalStories}})</div>
+            <p class="card-text">Статей</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

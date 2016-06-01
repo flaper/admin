@@ -4,7 +4,6 @@ import {PageManageRequests} from "./components/pages/PageManageRequest/PageManag
 
 export const ROUTES = [
   {path: '/', name: 'Dashboard', component: PageDashboard, useAsDefault: true},
-  {path: '/dashboard', name: 'Dashboard', component: PageDashboard},
   {path: '/login', name: 'Login', component: PageLogin},
   {path: '/requests', name: 'ManageRequests', component: PageManageRequests},
 ];

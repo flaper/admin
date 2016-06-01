@@ -5,10 +5,11 @@ import {Footer} from "./components/layout/footer/footer";
 import {UserService} from "flaper";
 import {PageService} from "./services/helpers/PageService";
 import {ROUTES} from './routes';
+import {Navbar} from "./components/layout/navbar/navbar";
 
 @Component({
   selector: 'app',
-  directives: [MenuLeft, Footer],
+  directives: [MenuLeft, Navbar, Footer],
   encapsulation: ViewEncapsulation.None,
   template: require('./app.html')
 })
