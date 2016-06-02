@@ -1,9 +1,10 @@
 {
   "name": "Flaper-backoffice",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "description": "Backoffice for flaper.org",
   "license": "MIT",
   "scripts": {
+    "deploy": "npm run build:prod && aws s3 cp dist s3://admin.flaper.org --recursive",
     "rimraf": "rimraf",
     "tslint": "tslint",
     "typedoc": "typedoc",
@@ -62,7 +63,7 @@
     "autosize": "^3.0.15",
     "bootstrap": "twbs/bootstrap#v4.0.0-alpha.2",
     "core-js": "^2.4.0",
-    "flaper": "^0.2.4",
+    "flaper": "^0.3.2",
     "lodash": "^4.13.1",
     "moment": "^2.13.0",
     "node-sass": "^3.7.0",
