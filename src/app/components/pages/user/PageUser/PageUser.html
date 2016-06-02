@@ -1,0 +1,25 @@
+<div class="container-fluid" *ngIf="user">
+  <h1 class="text-xs-center">{{user.displayName}}</h1>
+
+  <div *ngIf="acl.can('super')">
+    <hr>
+    <h4>Роли</h4>
+
+    <div *ngIf="user.roles.length ===0" class="alert alert-info">Еще нет ролей</div>
+    <div *ngIf="user.roles.length">
+      <ul>
+        <li *ngFor="let role of user.roles">{{role}}</li>
+      </ul>
+      <button class="btn btn-danger btn-sm" (click)="deleteAllRoles()"><i class="fa fa-trash"></i> Удалить роли</button>
+    </div>
+    <form *ngIf="roles.length" class="form-inline">
+      <div class="form-group">
+        <select class="form-control" [(ngModel)]="role">
+          <option></option>
+          <option *ngFor="let role of roles" value="{{role.name}}">{{role.name}}</option>
+        </select>
+        <button class="btn btn-primary btn-sm" (click)="addRole()"><i class="fa fa-plus"></i> Добавить</button>
+      </div>
+    </form>
+  </div>
+</div>
