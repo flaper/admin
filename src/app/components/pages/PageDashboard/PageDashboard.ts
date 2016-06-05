@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {UserService, StoryService} from "flaper";
+import {UserService, StoryService} from "@flaper/angular";
 import * as moment from 'moment';
 
 @Component({

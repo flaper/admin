@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {UserService, RoleService, ACL} from "flaper";
+import {UserService, RoleService, ACL} from "@flaper/angular";
 import {RouteParams} from '@angular/router-deprecated';
 
 @Component({

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {UserService} from "flaper";
+import {UserService} from "@flaper/angular";
 
 @Component({
   selector: 'Users',

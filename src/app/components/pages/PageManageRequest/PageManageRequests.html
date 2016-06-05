@@ -13,6 +13,7 @@
         <th>Страница</th>
         <th>Дата</th>
         <th>Статус</th>
+        <th *ngIf="acl.can('super')">Действия</th>
       </tr>
       </thead>
       <tbody>
@@ -25,8 +26,12 @@
         <td>
           <object-link [id]="request.subjectId"></object-link>
         </td>
-        <td>{{request.created | date}}</td>
+        <td>{{request.created | amDateFormat: 'LL'}}</td>
         <td><span class="label label-default">{{request.status}}</span></td>
+        <td *ngIf="acl.can('super')" class="actions">
+          <button class="btn btn-sm btn-success-outline" (click)="approve(request)"><i class=" fa fa-check"></i></button>
+          <button class="btn btn-sm btn-danger-outline" (click)="deny(request)"><i class=" fa fa-ban"></i></button>
+        </td>
       </tr>
       </tbody>
     </table>

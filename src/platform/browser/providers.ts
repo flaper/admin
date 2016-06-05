@@ -8,7 +8,7 @@ import { FORM_PROVIDERS, PathLocationStrategy, LocationStrategy } from '@angular
 import { HTTP_PROVIDERS } from '@angular/http';
 // Angular 2 Router
 import { ROUTER_PROVIDERS } from '@angular/router-deprecated';
-import {ALL_PROVIDERS} from 'flaper';
+import {ALL_PROVIDERS} from "@flaper/angular";
 import {Title} from "@angular/platform-browser"
 
 /*

@@ -2,7 +2,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import { RouteConfig, Router } from '@angular/router-deprecated';
 import {MenuLeft} from "./components/layout/MenuLeft/MenuLeft";
 import {Footer} from "./components/layout/footer/footer";
-import {UserService} from "flaper";
+import {UserService} from "@flaper/angular";
 import {PageService} from "./services/helpers/PageService";
 import {ROUTES} from './routes';
 import {Navbar} from "./components/layout/navbar/navbar";

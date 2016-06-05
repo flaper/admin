@@ -1,7 +1,7 @@
 import { PLATFORM_DIRECTIVES } from '@angular/core';
 // Angular 2 Router
 import { ROUTER_DIRECTIVES } from '@angular/router-deprecated';
-import {ObjectLink, AutoFocusIt} from 'flaper';
+import {ObjectLink, AutoFocusIt} from "@flaper/angular";
 
 // application_directives: directives that are global through out the application
 export const APPLICATION_DIRECTIVES = [

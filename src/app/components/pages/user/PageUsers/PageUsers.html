@@ -31,8 +31,8 @@
           </i>
           {{user.likesNumber}}
         </td>
-        <td>{{user.created | date}}</td>
-        <td>{{user.updated | date}}</td>
+        <td>{{user.created | amDateFormat: 'LL'}}</td>
+        <td>{{user.updated | amDateFormat: 'LL'}}</td>
       </tr>
       </tbody>
     </table>

@@ -1,6 +1,6 @@
 import { bootstrap } from '@angular/platform-browser-dynamic';
 import {API_BASE_URL, API_SERVER_URL} from './app/services/consts/Consts';
-import {Config as LibConfig} from 'flaper';
+import {Config as LibConfig} from "@flaper/angular";
 import {PageService} from "./app/services/helpers/PageService";
 
 LibConfig.Init({
