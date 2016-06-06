@@ -1,6 +1,16 @@
 <div class="container-fluid">
   <h1 class="text-xs-center">Заявки на управление страницей</h1>
 
+  <div>
+    <form class="form form-inline">
+      <div class="form-group">
+        <label for="status">Статус: </label>
+        <select id="status" class="form-control" [ngModel]="status" (change)="statusChanged($event)">
+          <option *ngFor="let status of STATUSES" value="{{status}}">{{status}}</option>
+        </select>
+      </div>
+    </form>
+  </div>
   <div class="table-responsive">
     <table class="table table-sm table-bordered table-striped">
       <thead>
@@ -29,8 +39,9 @@
         <td>{{request.created | amDateFormat: 'LL'}}</td>
         <td><span class="label label-default">{{request.status}}</span></td>
         <td *ngIf="acl.can('super')" class="actions">
-          <button class="btn btn-sm btn-success-outline" (click)="approve(request)"><i class=" fa fa-check"></i></button>
-          <button class="btn btn-sm btn-danger-outline" (click)="deny(request)"><i class=" fa fa-ban"></i></button>
+          <button class="btn btn-sm btn-success-outline" (click)="approve(request)" *ngIf="['active', 'denied'].includes(request.status)"><i class=" fa fa-check"></i>
+          </button>
+          <button class="btn btn-sm btn-danger-outline" (click)="deny(request)" *ngIf="request.status === 'active'"><i class=" fa fa-ban"></i></button>
         </td>
       </tr>
       </tbody>

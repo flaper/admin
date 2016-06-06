@@ -8,6 +8,8 @@ import {ACL, ManageRequestService} from "@flaper/angular";
 })
 export class PageManageRequests {
   requests;
+  status = 'active';
+  STATUSES = ['active', 'approved', 'denied', 'deleted'];
 
   constructor(private _requests:ManageRequestService, private acl:ACL) {
     this.updateRequests();
@@ -15,7 +17,12 @@ export class PageManageRequests {
 
   updateRequests() {
     //noinspection TypeScriptUnresolvedFunction
-    this._requests.get({where: {}, order: 'created DESC'}).subscribe(data => this.requests = data);
+    this._requests.get({where: {status: this.status}, order: 'created DESC'}).subscribe(data => this.requests = data);
+  }
+
+  statusChanged(event) {
+    this.status = event.target.value;
+    this.updateRequests();
   }
 
   approve(request) {
