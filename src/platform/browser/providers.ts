@@ -7,19 +7,21 @@ import { FORM_PROVIDERS, PathLocationStrategy, LocationStrategy } from '@angular
 // Angular 2 Http
 import { HTTP_PROVIDERS } from '@angular/http';
 // Angular 2 Router
-import { ROUTER_PROVIDERS } from '@angular/router-deprecated';
+import { provideRouter } from '@angular/router';
 import {ALL_PROVIDERS} from "@flaper/angular";
-import {Title} from "@angular/platform-browser"
+import {Title} from "@angular/platform-browser";
+import {ROUTES} from '../../app/routes';
 
 /*
  * Application Providers/Directives/Pipes
  * providers/directives/pipes that only live in our browser environment
  */
+//noinspection TypeScriptValidateTypes
 export const APPLICATION_PROVIDERS = [
   Title,
   ...FORM_PROVIDERS,
   ...HTTP_PROVIDERS,
-  ...ROUTER_PROVIDERS,
+  provideRouter(ROUTES),
   {provide: LocationStrategy, useClass: PathLocationStrategy}
 ];
 

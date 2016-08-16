@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {UserService, RoleService, ACL} from "@flaper/angular";
-import {RouteParams} from '@angular/router-deprecated';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'User',
@@ -14,13 +14,15 @@ export class PageUser {
   allRoles = [];
   roles = [];
 
-  constructor(private _user:UserService, private acl:ACL, routeParams:RouteParams, private _role:RoleService) {
-    this.userId = routeParams.params['id'];
-    this.requestUserRoles();
-    this._role.get().subscribe(roles => {
-      this.allRoles = roles;
-      this.newRoles();
-    })
+  constructor(private _user:UserService, private acl:ACL, route:ActivatedRoute, private _role:RoleService) {
+    route.params.subscribe(params => {
+      this.userId = params['id'];
+      this.requestUserRoles();
+      this._role.get().subscribe(roles => {
+        this.allRoles = roles;
+        this.newRoles();
+      })
+    });
   }
 
   requestUserRoles() {

@@ -1,10 +1,8 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { RouteConfig, Router } from '@angular/router-deprecated';
 import {MenuLeft} from "./components/layout/MenuLeft/MenuLeft";
 import {Footer} from "./components/layout/footer/footer";
 import {UserService} from "@flaper/angular";
 import {PageService} from "./services/helpers/PageService";
-import {ROUTES} from './routes';
 import {Navbar} from "./components/layout/navbar/navbar";
 
 @Component({
@@ -13,7 +11,6 @@ import {Navbar} from "./components/layout/navbar/navbar";
   encapsulation: ViewEncapsulation.None,
   template: require('./app.html')
 })
-@RouteConfig(ROUTES)
 export class App {
   constructor(private _user:UserService, private _page:PageService) {
 
