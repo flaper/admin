@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Router} from '@angular/router-deprecated';
+import {Router} from '@angular/router';
 
 import {JwtToken} from "@flaper/angular";
 const PAGE_DEFAULT = 'PAGE_DEFAULT';
@@ -12,16 +12,7 @@ export class PageService {
   }
 
   public getDefault() {
-    let value = PageService.GetFromLS();
-    let hasUser = JwtToken.get() ? true : false;
-    if (!value) {
-      value = 'Dashboard';
-    }
-    return value;
-  }
-
-  public setDefault(value) {
-    ls.setItem(PAGE_DEFAULT, value);
+    return '/';
   }
 
   public navigateToDefault() {
@@ -29,14 +20,8 @@ export class PageService {
   }
 
 
-  private static GetFromLS() {
-    let value = ls.getItem(PAGE_DEFAULT);
-    value = ['News', 'Home'].indexOf(value) > -1 ? value : null;
-    return value;
-  }
-
   public navigateToLogin() {
-    this.router.navigate(['/Login']);
+    this.router.navigateByUrl('/login');
   }
 
   public navigateAfterLogin() {

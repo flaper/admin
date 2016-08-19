@@ -21,7 +21,7 @@
       <tr *ngFor="let user of users">
         <td class="td-avatar"><img src="{{user.photo}}"></td>
         <td>
-          <a [routerLink]="['/User', {id:user.id}]">{{user.displayName}}</a>
+          <a [routerLink]="['/users', user.id]">{{user.displayName}}</a>
         </td>
         <td>
           <i class="fa fa-book">
