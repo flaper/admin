@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import {UserService, RoleService, ACL} from "@flaper/angular";
 import {ActivatedRoute} from '@angular/router';
+import {EditLoginPassword} from './EditLoginPassword/EditLoginPassword';
 
 @Component({
   selector: 'User',
   template: require('./PageUser.html'),
-  styles: [require('./PageUser.scss')]
+  styles: [require('./PageUser.scss')],
+  directives: [EditLoginPassword]
 })
 export class PageUser {
   role;

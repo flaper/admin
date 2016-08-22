@@ -1,11 +1,13 @@
 import {Component} from '@angular/core';
 import {AUTH_PROVIDERS} from "@flaper/angular";
 import {Title} from "@angular/platform-browser"
+import {PageLoginEmail} from "./PageLoginEmail/PageLoginEmail"
 
 @Component({
   selector: 'page-login',
   styles: [require('./PageLogin.scss')],
-  template: require('./PageLogin.html')
+  template: require('./PageLogin.html'),
+  directives: [PageLoginEmail]
 })
 export class PageLogin {
   static MESSAGE = "";
