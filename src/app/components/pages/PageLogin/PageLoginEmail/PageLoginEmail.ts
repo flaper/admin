@@ -11,6 +11,7 @@ export class PageLoginEmail {
 
   constructor(private auth:AuthService) {
   }
+
   onSubmit() {
     this.auth.login(this.data);
   }
