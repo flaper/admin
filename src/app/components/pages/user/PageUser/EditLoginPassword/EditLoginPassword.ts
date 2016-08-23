@@ -17,11 +17,14 @@ export class EditLoginPassword {
       this.userId = params['id'];
     });
     this._user.getById(this.userId).subscribe(user => {
-      this.data.id = this.userId;
-      this.data.username = user.username;
+      this.data['id'] = this.userId;
+      this.data['username'] = user.username;
     });
   }
+
   onSubmit() {
-    this._user.put(this.data).subscribe(data => {this.data = data});
+    this._user.put(this.data).subscribe(data => {
+      this.data = data
+    });
   }
 }
