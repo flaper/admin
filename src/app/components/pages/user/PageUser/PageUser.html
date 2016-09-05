@@ -5,7 +5,7 @@
     <hr>
     <h4>Роли</h4>
 
-    <div *ngIf="user.roles.length ===0" class="alert alert-info">Еще нет ролей</div>
+    <div *ngIf="user.roles.length===0" class="alert alert-info">Еще нет ролей</div>
     <div *ngIf="user.roles.length">
       <ul>
         <li *ngFor="let role of user.roles">{{role}}</li>
@@ -14,7 +14,7 @@
     </div>
     <form *ngIf="roles.length" class="form-inline">
       <div class="form-group">
-        <select class="form-control" [(ngModel)]="role">
+        <select class="form-control" [(ngModel)]="role" [ngModelOptions]="{standalone: true}">
           <option></option>
           <option *ngFor="let role of roles" value="{{role.name}}">{{role.name}}</option>
         </select>

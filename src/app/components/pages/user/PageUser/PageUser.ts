@@ -7,7 +7,7 @@ import {EditLoginPassword} from './EditLoginPassword/EditLoginPassword';
   selector: 'User',
   template: require('./PageUser.html'),
   styles: [require('./PageUser.scss')],
-  directives: [EditLoginPassword]
+  entryComponents: [EditLoginPassword]
 })
 export class PageUser {
   role;

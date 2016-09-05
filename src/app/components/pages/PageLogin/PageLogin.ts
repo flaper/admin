@@ -7,7 +7,7 @@ import {PageLoginEmail} from "./PageLoginEmail/PageLoginEmail"
   selector: 'page-login',
   styles: [require('./PageLogin.scss')],
   template: require('./PageLogin.html'),
-  directives: [PageLoginEmail]
+  entryComponents: [PageLoginEmail]
 })
 export class PageLogin {
   static MESSAGE = "";

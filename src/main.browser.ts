@@ -1,4 +1,3 @@
-import { bootstrap } from '@angular/platform-browser-dynamic';
 import {API_BASE_URL, API_SERVER_URL} from './app/services/consts/Consts';
 import {Config as LibConfig} from "@flaper/angular";
 import {PageService} from "./app/services/helpers/PageService";
@@ -8,32 +7,6 @@ LibConfig.Init({
   API_SERVER_URL: API_SERVER_URL,
   SUCCESS_LOGIN_CALLBACK: PageService.NavigateAfterLogin
 });
-
-
-//noinspection TypeScriptCheckImport
-import { DIRECTIVES, PIPES, PROVIDERS } from './platform/browser';
-import { ENV_PROVIDERS } from './platform/environment';
-
-import { App} from './app/app.component';
-import {APP_PROVIDERS} from './app/index';
-
-/*
- * Bootstrap our Angular app with a top level component `App` and inject
- * our Services and Providers into Angular's dependency injection
- */
-export function main(initialHmrState?:any):Promise<any> {
-
-  //noinspection TypeScriptValidateTypes
-  return bootstrap(App, [
-    ...PROVIDERS,
-    ...ENV_PROVIDERS,
-    ...DIRECTIVES,
-    ...PIPES,
-    ...APP_PROVIDERS
-  ])
-    .catch(err => console.error(err));
-
-}
 
 
 /*
@@ -56,3 +29,28 @@ if ('development' === ENV && HMR === true) {
   // bootstrap when document is ready
   document.addEventListener('DOMContentLoaded', () => main());
 }
+/*
+ * Angular bootstraping
+ */
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { decorateModuleRef } from './app/environment';
+import { ApplicationRef } from '@angular/core';
+import { bootloader } from '@angularclass/hmr';
+/*
+ * App Module
+ * our top level module that holds all of our components
+ */
+import { AppModule } from './app/index';
+
+/*
+ * Bootstrap our Angular app with a top level NgModule
+ */
+export function main(): Promise<any> {
+  return platformBrowserDynamic()
+    .bootstrapModule(AppModule)
+    .then(decorateModuleRef)
+    .catch(err => console.error(err));
+
+}
+
+bootloader(main);

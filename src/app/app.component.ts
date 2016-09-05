@@ -7,7 +7,7 @@ import {Navbar} from "./components/layout/navbar/navbar";
 
 @Component({
   selector: 'app',
-  directives: [MenuLeft, Navbar, Footer],
+  entryComponents: [MenuLeft, Navbar, Footer],
   encapsulation: ViewEncapsulation.None,
   template: require('./app.html')
 })
