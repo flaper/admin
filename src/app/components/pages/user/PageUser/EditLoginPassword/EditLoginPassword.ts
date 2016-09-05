@@ -21,7 +21,7 @@ export class EditLoginPassword {
       this.data['id'] = this.userId;
       this.data['username'] = user.username;
     });
-    this.error = api.error_message;
+    // this.error = api.error_message;
   }
 
   onSubmit() {
