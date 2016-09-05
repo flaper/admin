@@ -5,7 +5,6 @@ import '@angular/core';
 import '@angular/common';
 import '@angular/http';
 import '@angular/router';
-import 'angular2-hmr';//can be removed, only for development, ~3.5KB
 
 // RxJS
 //import 'rxjs/add/operator/map';
