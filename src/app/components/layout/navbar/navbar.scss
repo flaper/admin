@@ -4,6 +4,12 @@ $local-brand:  $brand-primary;
 .navbar {
   background-color: $local-brand;
   border-bottom: 1px solid lighten($local-brand, 10);
+  a {
+    color: #0275d8!important;
+    &:hover {
+      color: #014c8c!important;
+    }
+  }
   &.has-user {
     background-color: white;
     @media (max-width: map-get($grid-breakpoints, 'sm')-1) {
@@ -48,6 +54,10 @@ $local-brand:  $brand-primary;
   }
   .me-name {
     margin-left: 0.15rem;
+    color: #0275d8!important;
+    &:hover {
+      color: #014c8c!important;
+    }
   }
 }
 
