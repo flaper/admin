@@ -2,6 +2,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import {MenuLeft} from "./components/layout/MenuLeft/MenuLeft";
 import {Footer} from "./components/layout/footer/footer";
 import {UserService} from "@flaper/angular";
+import {Router,ActivatedRoute} from "@angular/router";
 import {PageService} from "./services/helpers/PageService";
 import {Navbar} from "./components/layout/navbar/navbar";
 
@@ -12,13 +13,10 @@ import {Navbar} from "./components/layout/navbar/navbar";
   template: require('./app.html')
 })
 export class App {
-  constructor(private _user:UserService, private _page:PageService) {
-
+  constructor(private _user:UserService, private _page:PageService, private router:Router,
+              private route:ActivatedRoute) {
   }
-
-  ngOnInit() {
-    if (!this._user.currentUserId) {
-      this._page.navigateToLogin();
-    }
+  ngOnInit(){
+    console.log(this.router.navigate(["login"]));
   }
 }

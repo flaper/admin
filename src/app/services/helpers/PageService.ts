@@ -38,4 +38,3 @@ export class PageService {
 }
 
 export let PAGE_PROVIDER = [PageService];
-
