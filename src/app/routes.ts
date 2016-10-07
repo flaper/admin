@@ -9,6 +9,7 @@ export const ROUTES = [
   {path: '', component: PageDashboard,canActivate:[RouteProtector]},
   {path: 'login', component: PageLogin,useAsDefault:true},
   {path: 'requests', component: PageManageRequests,canActivate:[RouteProtector]},
+  {path: 'requests/:page', component: PageManageRequests,canActivate:[RouteProtector]},
   {path: 'users', component: PageUsers,canActivate:[RouteProtector]},
   {path: 'users/:id', component: PageUser,canActivate:[RouteProtector]},
 ];

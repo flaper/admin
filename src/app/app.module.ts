@@ -17,6 +17,7 @@ import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import {MenuLeft} from "./components/layout/MenuLeft/MenuLeft";
 import {Footer} from "./components/layout/footer/footer";
 import {Navbar} from "./components/layout/navbar/navbar";
+import {PageNavigator} from "./components/layout/PageNavigator/PageNavigator";
 import {PageDashboard} from "./components/pages/PageDashboard/PageDashboard";
 import {PageLogin} from "./components/pages/PageLogin/PageLogin";
 import {PageManageRequests} from "./components/pages/PageManageRequest/PageManageRequests";
@@ -38,7 +39,7 @@ const APP_PROVIDERS = [
 @NgModule({
   bootstrap: [App],
   declarations: [
-    App, MenuLeft, Footer, Navbar, PageDashboard, PageLogin, PageManageRequests, PageLoginEmail, ObjectLink,
+    App, MenuLeft, Footer, Navbar,PageNavigator, PageDashboard, PageLogin, PageManageRequests, PageLoginEmail, ObjectLink,
     DateFormatPipe, PageUsers, PageUser, EditLoginPassword, AutoFocusIt
   ],
   imports: [ // import Angular's modules

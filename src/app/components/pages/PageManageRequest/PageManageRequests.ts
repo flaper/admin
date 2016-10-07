@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Router, ActivatedRoute} from "@angular/router";
 import {ACL, ManageRequestService} from "@flaper/angular";
 
 @Component({
@@ -9,15 +10,22 @@ import {ACL, ManageRequestService} from "@flaper/angular";
 export class PageManageRequests {
   requests;
   status = 'active';
+  pageSize:number = 25;
+  currentPage:number = 1;
+  pages:number = 5;
   STATUSES = ['active', 'approved', 'denied', 'deleted'];
 
-  constructor(private _requests:ManageRequestService, private acl:ACL) {
-    this.updateRequests();
+  constructor(private _requests:ManageRequestService, private acl:ACL,
+              private router:Router, private route:ActivatedRoute) {
+    route.params.subscribe(params => {
+      this.currentPage = parseInt(params.page);
+      this.updateRequests();
+    });
   }
 
   updateRequests() {
     //noinspection TypeScriptUnresolvedFunction
-    this._requests.get({where: {status: this.status}, order: 'created DESC'}).subscribe(data => this.requests = data);
+    this._requests.get({where: {status: this.status}, limit:this.pageSize, offset:(this.currentPage-1)*this.pageSize, order: 'created DESC'}).subscribe(data => this.requests = data);
   }
 
   statusChanged(event) {
