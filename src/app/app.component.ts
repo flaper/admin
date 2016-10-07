@@ -16,7 +16,4 @@ export class App {
   constructor(private _user:UserService, private _page:PageService, private router:Router,
               private route:ActivatedRoute) {
   }
-  ngOnInit(){
-    console.log(this.router.navigate(["login"]));
-  }
 }
