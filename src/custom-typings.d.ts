@@ -37,6 +37,7 @@ declare var ls:{
   removeItem: any
 };
 
+declare var $:any;
 
 // support NodeJS modules without type definitions
 declare module '*';
