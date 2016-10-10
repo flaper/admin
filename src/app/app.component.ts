@@ -19,6 +19,11 @@ export class App {
               private route:ActivatedRoute) {
       if (window.innerWidth >= 1000) this.initScroller();
   }
+  ngAfterContentChecked(){
+    if (!this._user.currentUserId && window.location.pathname != "/login")  {
+      this.router.navigate(['/login']);
+    }
+  }
   initScroller() {
     require('scrollup/dist/jquery.scrollUp.min');
     $(function () {
