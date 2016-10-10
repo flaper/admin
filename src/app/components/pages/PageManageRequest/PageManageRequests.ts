@@ -12,13 +12,13 @@ export class PageManageRequests {
   status = 'active';
   pageSize:number = 25;
   currentPage:number = 1;
-  pages:number = 5;
+  pages:number = 0;
   STATUSES = ['active', 'approved', 'denied', 'deleted'];
 
   constructor(private _requests:ManageRequestService, private acl:ACL,
               private router:Router, private route:ActivatedRoute) {
     route.params.subscribe(params => {
-      this.currentPage = parseInt(params['page']);
+      this.currentPage = parseInt(params['page']) || 1;
       this.updateRequests();
     });
   }
@@ -31,6 +31,12 @@ export class PageManageRequests {
       offset: (this.currentPage - 1) * this.pageSize,
       order: 'created DESC'
     }).subscribe(data => this.requests = data);
+
+    this._requests.count({
+      where: {status: this.status}
+    }).subscribe(data => {
+      this.pages = Math.floor(data / this.pageSize);
+    })
   }
 
   statusChanged(event) {
