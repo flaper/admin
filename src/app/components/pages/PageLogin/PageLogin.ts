@@ -16,6 +16,6 @@ export class PageLogin {
 
   constructor() {
     this.message = PageLogin.MESSAGE;
-    //ts.setTitle('Войти на Флапер');
+    //ts.setTitle('Войти на Флап');
   }
 }

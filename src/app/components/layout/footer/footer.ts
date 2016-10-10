@@ -6,6 +6,8 @@ import {Component} from '@angular/core';
   template: require('./footer.html')
 })
 export class Footer {
+  year = (new Date()).getFullYear();
+
   constructor() {
 
   }

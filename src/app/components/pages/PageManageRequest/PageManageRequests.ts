@@ -18,14 +18,19 @@ export class PageManageRequests {
   constructor(private _requests:ManageRequestService, private acl:ACL,
               private router:Router, private route:ActivatedRoute) {
     route.params.subscribe(params => {
-      this.currentPage = parseInt(params.page);
+      this.currentPage = parseInt(params['page']);
       this.updateRequests();
     });
   }
 
   updateRequests() {
     //noinspection TypeScriptUnresolvedFunction
-    this._requests.get({where: {status: this.status}, limit:this.pageSize, offset:(this.currentPage-1)*this.pageSize, order: 'created DESC'}).subscribe(data => this.requests = data);
+    this._requests.get({
+      where: {status: this.status},
+      limit: this.pageSize,
+      offset: (this.currentPage - 1) * this.pageSize,
+      order: 'created DESC'
+    }).subscribe(data => this.requests = data);
   }
 
   statusChanged(event) {
