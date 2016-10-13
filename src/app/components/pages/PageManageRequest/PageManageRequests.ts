@@ -32,9 +32,7 @@ export class PageManageRequests {
       order: 'created DESC'
     }).subscribe(data => this.requests = data);
 
-    this._requests.count({
-      where: {status: this.status}
-    }).subscribe(data => {
+    this._requests.count({status: this.status}).subscribe(data => {
       this.pages = Math.floor(data / this.pageSize);
     })
   }
