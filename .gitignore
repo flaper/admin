@@ -2,7 +2,7 @@ src/assets/bower
 # Logs
 logs
 *.log
-*config.local.json
+src/app/config/config.local.json
 
 # Runtime data
 pids
