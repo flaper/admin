@@ -64,7 +64,7 @@
     "@angularclass/hmr": "^1.2.0",
     "@angularclass/hmr-loader": "^3.0.2",
     "@flaper/angular": "^0.8.0",
-    "angular2-moment": "^1.0.0-beta.1",
+    "angular2-moment": "^1.0.0-beta.5",
     "autosize": "^3.0.15",
     "bootstrap": "^4.0.0-alpha.4",
     "core-js": "^2.4.1",
@@ -76,7 +76,7 @@
     "rxjs": "5.0.0-beta.12",
     "sass-loader": "^3.2.0",
     "script-loader": "^0.7.0",
-    "scrollup": "github:markgoodyear/scrollup",
+    "scrollup": "markgoodyear/scrollup",
     "style-loader": "^0.13.1",
     "zone.js": "~0.6.17"
   },

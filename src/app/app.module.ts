@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 // import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
+import {MomentModule} from 'angular2-moment';
 
 /*
  * Platform and Environment providers/directives/pipes
@@ -23,7 +24,6 @@ import {PageLogin} from "./components/pages/PageLogin/PageLogin";
 import {PageManageRequests} from "./components/pages/PageManageRequest/PageManageRequests";
 import {PageLoginEmail} from "./components/pages/PageLogin/PageLoginEmail/PageLoginEmail";
 import {ObjectLink, AutoFocusIt} from '@flaper/angular';
-import {DateFormatPipe, TimeAgoPipe} from 'angular2-moment';
 import {PageUsers} from "./components/pages/user/PageUsers/PageUsers";
 import {PageUser} from "./components/pages/user/PageUser/PageUser";
 import {EditLoginPassword} from "./components/pages/user/PageUser/EditLoginPassword/EditLoginPassword";
@@ -39,14 +39,15 @@ const APP_PROVIDERS = [
 @NgModule({
   bootstrap: [App],
   declarations: [
-    App, MenuLeft, Footer, Navbar,PageNavigator, PageDashboard, PageLogin, PageManageRequests, PageLoginEmail, ObjectLink,
-    DateFormatPipe, PageUsers, PageUser, EditLoginPassword, AutoFocusIt
+    App, MenuLeft, Footer, Navbar,PageNavigator, PageDashboard, PageLogin, PageManageRequests, PageLoginEmail,
+    ObjectLink, PageUsers, PageUser, EditLoginPassword, AutoFocusIt
   ],
   imports: [ // import Angular's modules
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(ROUTES, {useHash: false})
+    RouterModule.forRoot(ROUTES, {useHash: false}),
+    MomentModule
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
