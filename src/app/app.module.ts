@@ -1,32 +1,27 @@
-import { NgModule, ApplicationRef } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-// import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
-import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
-import {MomentModule} from 'angular2-moment';
+import {NgModule, ApplicationRef} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {HttpModule} from '@angular/http';
+import {RouterModule} from '@angular/router';
+import {removeNgStyles, createNewHosts, createInputTransfer} from '@angularclass/hmr';
 
 /*
  * Platform and Environment providers/directives/pipes
  */
-import { ENV_PROVIDERS } from './environment';
-import { ROUTES } from './routes';
+import {ENV_PROVIDERS} from './environment';
+import {ROUTES} from './routes';
 // App is our top level component
-import { App } from './app.component';
-import { APP_RESOLVER_PROVIDERS } from './app.resolver';
+import {App} from './app.component';
+import {APP_RESOLVER_PROVIDERS} from './app.resolver';
 import {MenuLeft} from "./components/layout/MenuLeft/MenuLeft";
 import {Footer} from "./components/layout/footer/footer";
 import {Navbar} from "./components/layout/navbar/navbar";
-import {PageNavigator} from "./components/layout/PageNavigator/PageNavigator";
 import {PageDashboard} from "./components/pages/PageDashboard/PageDashboard";
 import {PageLogin} from "./components/pages/PageLogin/PageLogin";
-import {PageManageRequests} from "./components/pages/PageManageRequest/PageManageRequests";
 import {PageLoginEmail} from "./components/pages/PageLogin/PageLoginEmail/PageLoginEmail";
-import {ObjectLink, AutoFocusIt} from '@flaper/angular';
 import {PageUsers} from "./components/pages/user/PageUsers/PageUsers";
 import {PageUser} from "./components/pages/user/PageUser/PageUser";
 import {EditLoginPassword} from "./components/pages/user/PageUser/EditLoginPassword/EditLoginPassword";
+import {SharedModule} from "./shared/shared.module";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -39,15 +34,14 @@ const APP_PROVIDERS = [
 @NgModule({
   bootstrap: [App],
   declarations: [
-    App, MenuLeft, Footer, Navbar,PageNavigator, PageDashboard, PageLogin, PageManageRequests, PageLoginEmail,
-    ObjectLink, PageUsers, PageUser, EditLoginPassword, AutoFocusIt
+    App, MenuLeft, Footer, Navbar, PageDashboard, PageLogin, PageLoginEmail,
+    PageUsers, PageUser, EditLoginPassword
   ],
   imports: [ // import Angular's modules
     BrowserModule,
-    FormsModule,
     HttpModule,
+    SharedModule,
     RouterModule.forRoot(ROUTES, {useHash: false}),
-    MomentModule
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
@@ -55,7 +49,7 @@ const APP_PROVIDERS = [
   ]
 })
 export class AppModule {
-  constructor(public appRef:ApplicationRef) {
+  constructor(public appRef: ApplicationRef) {
   }
 
   hmrOnInit() {
