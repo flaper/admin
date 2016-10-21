@@ -8,7 +8,7 @@ import {removeNgStyles, createNewHosts, createInputTransfer} from '@angularclass
  * Platform and Environment providers/directives/pipes
  */
 import {ENV_PROVIDERS} from './environment';
-import {ROUTES} from './routes';
+import {ROUTES} from './app.routes';
 // App is our top level component
 import {App} from './app.component';
 import {APP_RESOLVER_PROVIDERS} from './app.resolver';
@@ -18,10 +18,8 @@ import {Navbar} from "./components/layout/navbar/navbar";
 import {PageDashboard} from "./components/pages/PageDashboard/PageDashboard";
 import {PageLogin} from "./components/pages/PageLogin/PageLogin";
 import {PageLoginEmail} from "./components/pages/PageLogin/PageLoginEmail/PageLoginEmail";
-import {PageUsers} from "./components/pages/user/PageUsers/PageUsers";
-import {PageUser} from "./components/pages/user/PageUser/PageUser";
-import {EditLoginPassword} from "./components/pages/user/PageUser/EditLoginPassword/EditLoginPassword";
 import {SharedModule} from "./shared/shared.module";
+import UsersModule from "./modules/users/index";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -35,12 +33,12 @@ const APP_PROVIDERS = [
   bootstrap: [App],
   declarations: [
     App, MenuLeft, Footer, Navbar, PageDashboard, PageLogin, PageLoginEmail,
-    PageUsers, PageUser, EditLoginPassword
   ],
   imports: [ // import Angular's modules
     BrowserModule,
     HttpModule,
     SharedModule,
+    UsersModule,
     RouterModule.forRoot(ROUTES, {useHash: false}),
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
